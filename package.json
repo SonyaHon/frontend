@@ -30,7 +30,8 @@
 		"@types/socket.io"          : "^2.1.4",
 		"reflect-metadata"          : "^0.1.13",
 		"rimraf"                    : "^3.0.0",
-		"rxjs"                      : "^6.5.4"
+		"rxjs"                      : "^6.5.4",
+		"socket.io-msgpack-parser"  : "^2.2.0"
 	},
 	"devDependencies": {
 		"concurrently"                    : "^5.1.0",

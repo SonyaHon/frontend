@@ -1,7 +1,10 @@
 import io from 'socket.io-client';
 import {EVENTS} from '../../../shared';
+import parser from 'socket.io-msgpack-parser';
 
-const socket = io();
+const socket = io({
+	parser
+});
 
 const api = {
 	async emit(eventName, payload = null) {
