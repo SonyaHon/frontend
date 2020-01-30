@@ -1,18 +1,14 @@
-const webpack = require('webpack');
-const shared = require('../shared');
+const path = require('path');
 
 module.exports = {
 	'transpileDependencies': [
 		'vuetify'
 	],
 	configureWebpack       : {
-		plugins: [
-			new webpack.DefinePlugin({
-				...Object.keys(shared).reduce((res, current) => {
-					res[current] = JSON.stringify(shared[current]);
-					return res;
-				}, {})
-			})
-		]
+		resolve: {
+			alias: {
+				api: path.join(__dirname, 'src/plugins/api.js')
+			}
+		}
 	}
 };

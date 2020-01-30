@@ -1,5 +1,6 @@
 const EVENTS = {
-	MESSAGE: 'message'
+	MESSAGE: 'message',
+	CL_TEST: 'cl-test'
 };
 
 module.exports = {

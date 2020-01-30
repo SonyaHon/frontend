@@ -3,6 +3,8 @@
 </template>
 
 <script>
+	import {EVENTS} from 'api';
+
 	export default {
 		name: 'App',
 		data() {
@@ -11,7 +13,9 @@
 			};
 		},
 		async mounted() {
-			this.data = await this.api.emit(EVENTS.MESSAGE);
+			this.data = await this.api.emit(EVENTS.MESSAGE, {
+				id: 22
+			});
 		}
 	};
 </script>

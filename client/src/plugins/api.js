@@ -1,4 +1,5 @@
 import io from 'socket.io-client';
+import {EVENTS} from '../../../shared';
 
 const socket = io();
 
@@ -9,11 +10,24 @@ const api = {
 				resolve(data);
 			});
 		});
+	},
+	on(eventName, handler) {
+		socket.on(eventName, handler);
 	}
 };
 
 window.api = api;
 
-export default (Vue) => {
+const ApiPlugin = (Vue, settings) => {
 	Vue.prototype.api = api;
-}
+	if (settings) {
+		Object.keys(settings).forEach((key) => {
+			api.on(key, settings[key]);
+		});
+	}
+};
+
+export {
+	ApiPlugin,
+	EVENTS
+};
