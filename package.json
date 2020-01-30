@@ -17,7 +17,8 @@
 		"test:watch" : "jest --watch",
 		"test:cov"   : "jest --coverage",
 		"test:debug" : "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-		"test:e2e"   : "jest --config ./test/jest-e2e.json"
+		"test:e2e"   : "jest --config ./test/jest-e2e.json",
+		"dev"        : "concurrently \"yarn start:dev\" \"yarn --cwd ./client build\""
 	},
 	"dependencies"   : {
 		"@nestjs/common"            : "^6.10.14",
@@ -32,6 +33,7 @@
 		"rxjs"                      : "^6.5.4"
 	},
 	"devDependencies": {
+		"concurrently"                    : "^5.1.0",
 		"@nestjs/cli"                     : "^6.13.2",
 		"@nestjs/schematics"              : "^6.8.1",
 		"@nestjs/testing"                 : "^6.10.14",

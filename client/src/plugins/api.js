@@ -12,6 +12,8 @@ const api = {
 	}
 };
 
+window.api = api;
+
 export default (Vue) => {
 	Vue.prototype.api = api;
 }
