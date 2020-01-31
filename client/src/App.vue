@@ -1,20 +1,12 @@
 <template lang="pug">
-	v-app(dark): v-content: v-container() {{data}}
+	v-app
+		v-content: v-container(fill-height fluid)
+			router-view
 </template>
 
 <script>
-	import {EVENTS} from '@/plugins/api';
-
 	export default {
 		name: 'App',
-		data() {
-			return {
-				data: ''
-			};
-		},
-		async mounted() {
-			this.data = this.api.emit(EVENTS.MESSAGE);
-		}
 	};
 </script>
 
