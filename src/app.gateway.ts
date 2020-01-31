@@ -2,17 +2,23 @@ import {SubscribeMessage, WebSocketGateway, WebSocketServer} from '@nestjs/webso
 import {EVENTS} from '../shared'
 import {Server, Socket} from "socket.io";
 import * as parser from 'socket.io-msgpack-parser'
+import {AppService} from "./app.service";
+import {Observable} from "rxjs";
 
 @WebSocketGateway({
 	parser
 })
 export class AppGateway {
 
+	constructor(private readonly appService: AppService) {
+	}
+
 	@WebSocketServer() server: Server;
 
-	@SubscribeMessage(EVENTS.MESSAGE)
-	async onMessage(client: Socket, payload: any): Promise<string> {
-		console.log('Cookie:', client.handshake.headers);
-		return 'Hello world!'
+
+	@SubscribeMessage(EVENTS.AUTH_GET)
+	onAuthGet(client: Socket, payload: any): Observable<boolean> {
+		return this.appService.getAuth(client.handshake.headers.cookie || {});
 	}
+
 }

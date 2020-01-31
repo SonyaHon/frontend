@@ -1,6 +1,5 @@
 const EVENTS = {
-	MESSAGE: 'message',
-	CL_TEST: 'cl-test'
+	AUTH_GET: 'auth-get'
 };
 
 module.exports = {

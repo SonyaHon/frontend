@@ -19,7 +19,6 @@ const api = {
 	}
 };
 
-window.api = api;
 
 const ApiPlugin = (Vue, settings) => {
 	Vue.prototype.api = api;
@@ -32,5 +31,6 @@ const ApiPlugin = (Vue, settings) => {
 
 export {
 	ApiPlugin,
-	EVENTS
+	EVENTS,
+	api
 };
