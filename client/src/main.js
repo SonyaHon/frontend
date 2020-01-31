@@ -8,14 +8,18 @@ import {EVENTS, ApiPlugin} from 'api';
 Vue.config.productionTip = false;
 
 Vue.use(DataService);
-Vue.use(ApiPlugin, {
-	[EVENTS.CL_TEST]: function (a, b, c, d) {
-		console.log('HAHAH', a, b, c, d);
-	}
-});
+Vue.use(ApiPlugin, {});
 
-new Vue({
-	router,
-	vuetify,
-	render: h => h(App)
-}).$mount('#app');
+document.body.style.backgroundColor = '#121212';
+
+async function start() {
+
+	await new Promise(resolve => setTimeout(() => resolve(), 3000));
+	new Vue({
+		router,
+		vuetify,
+		render: h => h(App)
+	}).$mount('#app');
+}
+
+start();
